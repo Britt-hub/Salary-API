@@ -33,9 +33,18 @@ expected_salaries = {"NY": 70000, "CA": 70000, "FL": 50000, "NC": 50000, "TX": 6
 valid_states = ("FL", "CA", "NY", "NC", "TX")
 
 if users_experience == 1:
-    print("Expect between $40,000 and $60,000 of your level of experience.")
+    expected_salaries = expected_salaries[users_info["state"]]
+    new_expected_salary = - 5000  #70,000 - 5,000 = $65,000
+
     if len(users_coding_languages) < 3:
-        print("Learn some more languages: deduct $10K form the expected salary.")
+        new_expected_salary = new_expected_salary - 10000 # 65,000 - $10,000 = $55k
+        print("Learn some more languages; deduct $10K form the expected salary.")
+    elif len(users_coding_languages) > 3:
+        new_expected_salary = new_expected_salary + 10000
+    else:
+        new_expected_salary = new_expected_salary + 5000
+        print("Expect $" + str(new_expected_salary) + "of your level of experience.")
+
 
 elif users_experience == 2:
     print("Expect between $60,000 and $80,000 of your level of experience.")
