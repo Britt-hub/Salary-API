@@ -13,7 +13,7 @@ users_coding_languages = input("What languages do you know? (seperate by using c
 
 users_coding_languages = users_coding_languages.split(",")
 
-dob = input ("Please enter you Date of Birth ()MM/DD/YYYY): \n")
+dob = input ("Please enter you Date of Birth (MM/DD/YYYY)): \n")
 
 full_name = input("Please enter your full name: \n")
 
@@ -21,6 +21,16 @@ country = input("Please enter your country: \n")
 
 state = input("Please enter your state (use the 2 letter abbreviation): \n")
 
+is_active = True
+
+number_of_education_years = input("Please enter how many years you have been coding? \n")
+
+users_info = {"dob": dob,"full name": full_name, "country": country, "state": state, "is_active": is_active, "number_of_education_years": number_of_education_years}
+#creating a dict for each expected salaries
+
+expected_salaries = {"NY": 70000, "CA": 70000, "FL": 50000, "NC": 50000, "TX": 60000}
+
+valid_states = ("FL", "CA", "NY", "NC", "TX")
 
 if users_experience == 1:
     print("Expect between $40,000 and $60,000 of your level of experience.")
@@ -49,7 +59,7 @@ elif users_experience == 4:
     elif len(users_coding_languages) > 5:
         print("You're in good shape!")
 
-users_info = input("What is your date of birth?")
+# users_info = input("What is your date of birth?")
 
 
 #users_info = int(users_info)
@@ -63,11 +73,11 @@ users_info = input("What is your date of birth?")
 
 #users_country = input("What is your country?")
 
-user_isActive = input("If you are an active code type 1 if you are not type 2")
-
-user_isActive_bool = user_isActive == "1"
-
-print(user_isActive_bool)
+# user_isActive = input("If you are an active code type 1 if you are not type 2")
+#
+# user_isActive_bool = user_isActive == "1"
+#
+# print(user_isActive_bool)
 
 # else:
 #     print(10*"*" + "You must insert one of the value options." + 10*"*")
