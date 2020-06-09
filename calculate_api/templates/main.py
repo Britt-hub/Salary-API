@@ -7,6 +7,8 @@ users_experience = input("How many years of experience do you have developing so
                          "\n[2] 1-3 years of experience \n[3] 3-8 years of experience \n[4] "
                           "8+ years of experience \n")
 
+valid_states = ("FL", "CA", "NY", "NC", "TX")
+expected_salaries = {"NY": 70000, "CA": 70000, "FL": 50000, "NC": 50000, "TX": 60000}
 users_experience = int(users_experience)
 
 users_coding_languages = input("What languages do you know? (seperate by using commas)")
@@ -19,7 +21,13 @@ full_name = input("Please enter your full name: \n")
 
 country = input("Please enter your country: \n")
 
-state = input("Please enter your state (use the 2 letter abbreviation): \n")
+print(valid_states[0])
+print(valid_states[1])
+print(valid_states[2])
+print(valid_states[3])
+print(valid_states[4])
+
+state = input("Choose your state (use the 2 letter abbreviation): \n")
 
 is_active = True
 
@@ -28,9 +36,7 @@ number_of_education_years = input("Please enter how many years you have been cod
 users_info = {"dob": dob,"full name": full_name, "country": country, "state": state, "is_active": is_active, "number_of_education_years": number_of_education_years}
 #creating a dict for each expected salaries
 
-expected_salaries = {"NY": 70000, "CA": 70000, "FL": 50000, "NC": 50000, "TX": 60000}
 
-valid_states = ("FL", "CA", "NY", "NC", "TX")
 
 if users_experience == 1:
     expected_salaries = expected_salaries[users_info["state"]]
@@ -43,6 +49,10 @@ if users_experience == 1:
         new_expected_salary = new_expected_salary + 10000
     else:
         new_expected_salary = new_expected_salary + 5000
+    if int(number_of_education_years) > 3:
+        new_expected_salary = new_expected_salary + 5000
+    else:
+        new_expected_salary = new_expected_salary - 5000
         print("Expect $" + str(new_expected_salary) + "of your level of experience.")
 
 
