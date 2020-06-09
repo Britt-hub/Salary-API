@@ -5,10 +5,9 @@
 valid_states = ("FL", "CA", "NY", "NC", "TX")
 expected_salaries = {"NY": 70000, "CA": 70000, "FL": 50000, "NC": 50000, "TX": 60000}
 
-
-users_experience = input("How many years of experience do you have developing software?\n[1] Less than 1 year" 
+users_experience = input("How many years of experience do you have developing software?\n[1] Less than 1 year"
                          "\n[2] 1-3 years of experience \n[3] 3-8 years of experience \n[4] "
-                          "8+ years of experience \n")
+                         "8+ years of experience \n")
 
 users_experience = int(users_experience)
 
@@ -16,7 +15,7 @@ users_coding_languages = input("What languages do you know? (seperate by using c
 
 users_coding_languages = users_coding_languages.split(",")
 
-dob = input ("Please enter you Date of Birth (MM/DD/YYYY)): \n")
+dob = input("Please enter you Date of Birth (MM/DD/YYYY)): \n")
 
 full_name = input("Please enter your full name: \n")
 
@@ -34,18 +33,19 @@ is_active = True
 
 number_of_education_years = input("Please enter how many years you have been coding? \n")
 
-
-
-users_info = {"dob": dob,"full_name": full_name,"country": country, "state": state, "is_active": is_active, "number_of_education_years": number_of_education_years}
-
-
+users_info = {"dob": dob, "full_name": full_name, "country": country, "state": state, "is_active": is_active,
+              "number_of_education_years": number_of_education_years}
 
 if users_experience == 1:
-    expected_salary = expected_salaries[users_info["state"]]
-    new_expected_salary = expected_salary - 5000  #70,000 - 5,000 = $65,000
+    try:
+        expected_salary = expected_salaries[users_info["state"]]
+    except KeyError:
+        print("Please enter a valid state")
+
+    new_expected_salary = expected_salary - 5000  # 70,000 - 5,000 = $65,000
 
     if len(users_coding_languages) < 3:
-        new_expected_salary = new_expected_salary - 10000 # 65,000 - $10,000 = $55k
+        new_expected_salary = new_expected_salary - 10000  # 65,000 - $10,000 = $55k
         print("Learn some more languages; deduct $10K form the expected salary.")
     elif len(users_coding_languages) > 3:
         new_expected_salary = new_expected_salary + 10000
@@ -83,16 +83,16 @@ elif users_experience == 4:
 # users_info = input("What is your date of birth?")
 
 
-#users_info = int(users_info)
+# users_info = int(users_info)
 
 
-#print("DOB is: " + DOB)
+# print("DOB is: " + DOB)
 
-#users_name = input("What is your name?")
+# users_name = input("What is your name?")
 
-#users_state = input("What is your state?")
+# users_state = input("What is your state?")
 
-#users_country = input("What is your country?")
+# users_country = input("What is your country?")
 
 # user_isActive = input("If you are an active code type 1 if you are not type 2")
 #
