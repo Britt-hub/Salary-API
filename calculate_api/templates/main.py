@@ -2,13 +2,14 @@
 # use an if/else/elif statement to check if the user chose option 1,2,3,4
 # else if the
 
+valid_states = ("FL", "CA", "NY", "NC", "TX")
+expected_salaries = {"NY": 70000, "CA": 70000, "FL": 50000, "NC": 50000, "TX": 60000}
+
 
 users_experience = input("How many years of experience do you have developing software?\n[1] Less than 1 year" 
                          "\n[2] 1-3 years of experience \n[3] 3-8 years of experience \n[4] "
                           "8+ years of experience \n")
 
-valid_states = ("FL", "CA", "NY", "NC", "TX")
-expected_salaries = {"NY": 70000, "CA": 70000, "FL": 50000, "NC": 50000, "TX": 60000}
 users_experience = int(users_experience)
 
 users_coding_languages = input("What languages do you know? (seperate by using commas)")
@@ -33,14 +34,19 @@ is_active = True
 
 number_of_education_years = input("Please enter how many years you have been coding? \n")
 
+
+
 users_info = {"dob": dob,"full name": full_name, "country": country, "state": state, "is_active": is_active, "number_of_education_years": number_of_education_years}
 #creating a dict for each expected salaries
 
 
 
 if users_experience == 1:
-    expected_salaries = expected_salaries[users_info["state"]]
-    new_expected_salary = - 5000  #70,000 - 5,000 = $65,000
+    try:
+    expected_salary = expected_salaries[users_info["state"]]
+except keyError:
+    print("Please enter a valid state.")
+    new_expected_salary = expected_salary - 5000  #70,000 - 5,000 = $65,000
 
     if len(users_coding_languages) < 3:
         new_expected_salary = new_expected_salary - 10000 # 65,000 - $10,000 = $55k
