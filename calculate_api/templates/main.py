@@ -9,11 +9,18 @@ users_experience = input("How many years of experience do you have developing so
 
 users_experience = int(users_experience)
 
-users_coding_languages = input("What languages do you know?")
-print("Before Split():" + users_coding_languages)
+users_coding_languages = input("What languages do you know? (seperate by using commas)")
 
 users_coding_languages = users_coding_languages.split(",")
-print("After Split():" + str(users_coding_languages))
+
+dob = input ("Please enter you Date of Birth ()MM/DD/YYYY): \n")
+
+full_name = input("Please enter your full name: \n")
+
+country = input("Please enter your country: \n")
+
+state = input("Please enter your state (use the 2 letter abbreviation): \n")
+
 
 if users_experience == 1:
     print("Expect between $40,000 and $60,000 of your level of experience.")
