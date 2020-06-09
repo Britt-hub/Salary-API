@@ -37,25 +37,27 @@ users_info = {"dob": dob, "full_name": full_name, "country": country, "state": s
               "number_of_education_years": number_of_education_years}
 
 if users_experience == 1:
+    # FIRST WE WILL TRY SOME CODE. IF IT DOESN'T WORK THEN WE WILL TRY THIS CODE'
     try:
         expected_salary = expected_salaries[users_info["state"]]
     except KeyError:
-        print("Please enter a valid state")
-
-    new_expected_salary = expected_salary - 5000  # 70,000 - 5,000 = $65,000
-
-    if len(users_coding_languages) < 3:
-        new_expected_salary = new_expected_salary - 10000  # 65,000 - $10,000 = $55k
-        print("Learn some more languages; deduct $10K form the expected salary.")
-    elif len(users_coding_languages) > 3:
-        new_expected_salary = new_expected_salary + 10000
+        print(" INPUT ERROR: Please enter a valid state")
     else:
-        new_expected_salary = new_expected_salary + 5000
-    if int(number_of_education_years) > 3:
-        new_expected_salary = new_expected_salary + 5000
-    else:
-        new_expected_salary = new_expected_salary - 5000
-        print("Expect $" + str(new_expected_salary) + "of your level of experience.")
+
+        new_expected_salary = expected_salary - 5000  # 70,000 - 5,000 = $65,000
+
+        if len(users_coding_languages) < 3:
+            new_expected_salary = new_expected_salary - 10000  # 65,000 - $10,000 = $55k
+            print("Learn some more languages; deduct $10K form the expected salary.")
+        elif len(users_coding_languages) > 3:
+            new_expected_salary = new_expected_salary + 10000
+        else:
+            new_expected_salary = new_expected_salary + 5000
+        if int(number_of_education_years) > 3:
+            new_expected_salary = new_expected_salary + 5000
+        else:
+            new_expected_salary = new_expected_salary - 5000
+            print("Expect $" + str(new_expected_salary) + " for your level of experience.")
 
 
 elif users_experience == 2:
