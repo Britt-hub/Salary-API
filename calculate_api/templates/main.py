@@ -82,26 +82,3 @@ elif users_experience == 4:
     elif len(users_coding_languages) > 5:
         print("You're in good shape!")
 
-# users_info = input("What is your date of birth?")
-
-
-# users_info = int(users_info)
-
-
-# print("DOB is: " + DOB)
-
-# users_name = input("What is your name?")
-
-# users_state = input("What is your state?")
-
-# users_country = input("What is your country?")
-
-# user_isActive = input("If you are an active code type 1 if you are not type 2")
-#
-# user_isActive_bool = user_isActive == "1"
-#
-# print(user_isActive_bool)
-
-# else:
-#     print(10*"*" + "You must insert one of the value options." + 10*"*")
-
