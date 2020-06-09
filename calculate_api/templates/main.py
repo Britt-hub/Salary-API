@@ -36,16 +36,12 @@ number_of_education_years = input("Please enter how many years you have been cod
 
 
 
-users_info = {"dob": dob,"full name": full_name, "country": country, "state": state, "is_active": is_active, "number_of_education_years": number_of_education_years}
-#creating a dict for each expected salaries
+users_info = {"dob": dob,"full_name": full_name,"country": country, "state": state, "is_active": is_active, "number_of_education_years": number_of_education_years}
 
 
 
 if users_experience == 1:
-    try:
     expected_salary = expected_salaries[users_info["state"]]
-except keyError:
-    print("Please enter a valid state.")
     new_expected_salary = expected_salary - 5000  #70,000 - 5,000 = $65,000
 
     if len(users_coding_languages) < 3:
