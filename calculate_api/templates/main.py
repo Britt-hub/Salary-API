@@ -40,8 +40,12 @@ if users_experience == 1:
     # FIRST WE WILL TRY SOME CODE. IF IT DOESN'T WORK THEN WE WILL TRY THIS CODE'
     try:
         expected_salary = expected_salaries[users_info["state"]]
+        number_of_education_years_as_an_integer = int(number_of_education_years)
+
     except KeyError:
         print(" INPUT ERROR: Please enter a valid state")
+    except ValueError:
+        print("***** INPUT ERROR: Please enter a vlaid number for years of learning experience")
     else:
 
         new_expected_salary = expected_salary - 5000  # 70,000 - 5,000 = $65,000
