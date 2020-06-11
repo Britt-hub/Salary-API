@@ -21,11 +21,14 @@ full_name = input("Please enter your full name: \n")
 
 country = input("Please enter your country: \n")
 
-print(valid_states[0])
-print(valid_states[1])
-print(valid_states[2])
-print(valid_states[3])
-print(valid_states[4])
+for state in valid_states:
+    print(state)
+# above shows a for loop being used. Takes up less code.
+# print(valid_states[0])
+# print(valid_states[1])
+# print(valid_states[2])
+# print(valid_states[3])
+# print(valid_states[4])
 
 state = input("Choose your state (use the 2 letter abbreviation): \n")
 
@@ -39,7 +42,7 @@ users_info = {"dob": dob, "full_name": full_name, "country": country, "state": s
 if users_experience == 1:
     # FIRST WE WILL TRY SOME CODE. IF IT DOESN'T WORK THEN WE WILL TRY THIS CODE'
     try:
-        expected_salary = expected_salaries[users_info["state"]]
+        expected_salary = expected_salaries[users_info["state"].upper()]
         number_of_education_years_as_an_integer = int(number_of_education_years)
 
     except KeyError:
