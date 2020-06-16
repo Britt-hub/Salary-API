@@ -1,6 +1,7 @@
 # ask the user to input their experience.
 # use an if/else/elif statement to check if the user chose option 1,2,3,4
 # else if the
+from UserProfile import UserProfile
 
 valid_states = ("FL", "CA", "NY", "NC", "TX")
 expected_salaries = {"NY": 70000, "CA": 70000, "FL": 50000, "NC": 50000, "TX": 60000}
@@ -43,11 +44,17 @@ def calculate_expected_salary(number_of_experience_years,user_information, numbe
                 salary = expected_salaries[state]
                 print("Your starting salary living in " + state + " could have been $" + str(salary) + ".")
 
+def create_unique_id(user_name):
+    random_id = id(user_name)
+    return random_id
+
 while True:
     try:
-        users_experience = input("How many years of experience do you have developing software?\n[1] Less than 1 year"
-                                 "\n[2] 1-3 years of experience \n[3] 3-8 years of experience \n[4] "
-                                 "8+ years of experience \n")
+        # users_experience = input("How many years of experience do you have developing software?\n[1] Less than 1 year"
+        #                          "\n[2] 1-3 years of experience \n[3] 3-8 years of experience \n[4] "
+        #                          "8+ years of experience \n")
+
+
 
         users_experience = int(users_experience)
 
@@ -79,9 +86,10 @@ while True:
         is_active = True
 
         number_of_education_years = input("Please enter how many years you have been coding? \n")
-
+# this is a dict
         users_info = {"dob": dob, "full_name": full_name, "country": country, "state": state, "is_active": is_active,
-                      "number_of_education_years": number_of_education_years, "age": int(age)}
+                      "number_of_education_years": number_of_education_years,
+                      "age": int(age), "id": create_unique_id(full_name)}
         break
     except ValueError:
         print("Please enter all valid values")
