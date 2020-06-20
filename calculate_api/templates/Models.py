@@ -48,10 +48,24 @@ class UserProfile:
 
 
 class Developer(UserProfile):
-    def __init__(self, dob, full_name, country, state, number_of_education_years, age):
+    def __init__(self, dob, full_name, country, state, number_of_education_years, age, list_of_languages):
         super().__init__(dob, full_name, country, state, number_of_education_years, age)
+        self.coding_languages = list_of_languages
 
+    def get_coding_languages(self):
+        return self.coding_languages
+
+    def set_coding_languages(self, new_list_of_coding_languages):
+        self.coding_languages = new_list_of_coding_languages
 
 class Designer(UserProfile):
-    def __init__(self, dob, full_name, country, state, number_of_education_years, age):
+    def __init__(self, dob, full_name, country, state, number_of_education_years, age, sofware_programs):
         super().__init__(dob, full_name, country, state, number_of_education_years, age)
+        self.list_of_software_programs = sofware_programs
+
+    def get_list_of_software_programs(self):
+        return self.list_of_software_programs
+
+    def set_list_of_software_programs(self, new_list_of_software_programs):
+        self.list_of_software_programs = new_list_of_software_programs
+
