@@ -22,7 +22,7 @@ def calculate_expected_salary(number_of_experience_years, user_information, numb
     except KeyError:
         print(" INPUT ERROR: Please enter a valid state")
     except ValueError:
-        print("***** INPUT ERROR: Please enter a vlaid number for years of learning experience")
+        print("***** INPUT ERROR: Please enter a valid number for years of learning experience")
     else:
         new_expected_salary = 0
         if number_of_experience_years == 1:
@@ -83,20 +83,24 @@ while create_a_candidate:
         if int(candidate_type) == 1:
             is_developer = True
             is_designer = True
+            users_experience = input(
+                "How many years of experience do you have developing software?\n[1] Less than 1 year"
+                "\n[2] 1-3 years of experience \n[3] 3-8 years of experience \n[4] "
+                "8+ years of experience \n")
         elif int(candidate_type) == 2:
             is_designer = True
             is_designer = False
+            users_experience = input(
+                "How many years of experience do you have designing?\n[1] Less than 1 year"
+                "\n[2] 1-3 years of experience \n[3] 3-8 years of experience \n[4] "
+                "8+ years of experience \n")
         else:
             raise ValueError
-
-        users_experience = input("How many years of experience do you have developing software?\n[1] Less than 1 year"
-                                 "\n[2] 1-3 years of experience \n[3] 3-8 years of experience \n[4] "
-                                 "8+ years of experience \n")
 
         users_experience = int(users_experience)
 
         if is_developer:
-            users_coding_languages = input("What languages do you know? (seperate by using commas)")
+            users_coding_languages = input("What languages do you know? (seperate by using commas) \n")
 
             if users_coding_languages == '':
                 raise ValueError
@@ -106,10 +110,13 @@ while create_a_candidate:
         else:
             user_software_programs = input("What software design tools do you use? (separate by using commas)")
 
-        if user_software_programs == ',':
-            raise ValueError
+        if is_designer:
+            user_software_programs = input ("What software programs (design tools) do you know? (seperate by using commas) \n")
 
-        user_software_programs = user_software_programs.split(",")
+            if user_software_programs == ',':
+                raise ValueError
+
+            user_software_programs = user_software_programs.split(",")
 
         dob = input("Please enter you Date of Birth (MM/DD/YYYY)): \n")
 
@@ -126,7 +133,7 @@ while create_a_candidate:
 
         is_active = True
 
-        number_of_education_years = input("Please enter how many years you have been coding? \n")
+        number_of_education_years = input("Please enter how many years you have been learning this skill set? \n")
 
         # this is a dict
         users_info = {"dob": dob, "full_name": full_name, "country": country, "state": state, "is_active": is_active,
@@ -163,6 +170,9 @@ while create_a_candidate:
             create_a_candidate
         else:
             create_a_candidate = False
+            print("Thank you for sharing this information. We will be in touch!")
 
     except ValueError:
         print("Please enter all valid values")
+
+
