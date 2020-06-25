@@ -1,3 +1,5 @@
+
+
 valid_states = ("FL", "CA", "NY", "NC", "TX")
 expected_salaries = {"NY": 70000, "CA": 70000, "FL": 50000, "NC": 50000, "TX": 60000}
 
@@ -9,9 +11,14 @@ def calculate_expected_salary(number_of_experience_years, user_information, numb
         number_of_education_years_as_an_integer = int(number_of_edu_years)
 
     except KeyError:
-        print(" INPUT ERROR: Please enter a valid state")
+        return " INPUT ERROR: Please enter a valid state"
+
     except ValueError:
-        print("***** INPUT ERROR: Please enter a valid number for years of learning experience")
+        return "***** INPUT ERROR: Please enter a valid number for years of learning experience *****"
+
+    except Exception:
+        print("Something went wrong. Please contact the administrator. Sorry")
+
     else:
         new_expected_salary = 0
         if number_of_experience_years == 1:
@@ -23,12 +30,12 @@ def calculate_expected_salary(number_of_experience_years, user_information, numb
         elif number_of_experience_years == 4:
             new_expected_salary = expected_salary + 5000  # Adding 5K because the user has 4 years of experience.
 
-            print(10 + "*" + "Sorry, please enter one of the valid options" + 10 * "*")
+            return 10 + "*" + "Sorry, please enter one of the valid options for number of experience years." + 10 * "*"
 
         if is_developer == True:
             if len(users_coding_languages) < 3:
                 new_expected_salary = new_expected_salary - 10000  # 65,000 - $10,000 = $55k
-                print("Learn some more languages; deduct $10K form the expected salary.")
+                # return "Learn some more languages; deduct $10K form the expected salary."
 
             elif len(users_coding_languages) > 3:
                 new_expected_salary = new_expected_salary + 10000
@@ -41,7 +48,7 @@ def calculate_expected_salary(number_of_experience_years, user_information, numb
         if is_designer == True:
             if len(user_software_programs) < 3:
                 new_expected_salary = new_expected_salary - 10000  # 65,000 - $10,000 = $55k
-                print("Learn more design tools; deduct $10K form the expected salary.")
+                return "Learn more design tools; deduct $10K form the expected salary. \n"
 
             elif len(user_software_programs) > 3:
                 new_expected_salary = new_expected_salary + 10000
@@ -49,8 +56,13 @@ def calculate_expected_salary(number_of_experience_years, user_information, numb
             else:
                 new_expected_salary = new_expected_salary - 5000
 
-            print("Expect $" + str(new_expected_salary) + " for your level of experience.")
-            for state in expected_salaries:
-                salary = expected_salaries[state]
-                print("Your starting salary living in " + state + " could have been $" + str(salary) + ".")
+        result_message = ""
 
+        for state in expected_salaries:
+            salary = expected_salaries[state]
+            result_message = result_message + "Your starting salary living in " + state + " could have been $" + str(salary) + ". \n"
+            # print("Your starting salary living in " + state + " could have been $" + str(salary) + ".")
+
+        result_message = result_message + "Expected $" + str(new_expected_salary) + " for your level of experience. \n"
+
+        return result_message
