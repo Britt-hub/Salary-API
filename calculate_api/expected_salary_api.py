@@ -5,6 +5,8 @@ from calculate_api.utilities import calculator
 
 app = Flask(__name__)  # Activate the flask application
 
+import json
+
 
 @app.route('/hello_world')
 def hello_world():
@@ -19,14 +21,43 @@ def candidate_form():
     return render_template("index.html")
 
 
+@app.route('/open-jobs')
+def open_jobs():
+    f = open("data.json", "r")  # Opens the file in read mode
+    data_content = f.read()  # Read data from file & store in a var as raw txt
+    jobs_as_json = json.loads(data_content)  # this will turn raw txt into a python object
+
+    result_message = ""
+    for job in jobs_as_json:  # this loops over the list of job dicts
+        print(job)
+        print(job["job_title"])
+        print(job["location"])
+        result_message = result_message + job["job_title"] + "\n"
+
+    return render_template("result.html", message=result_message)
+
+    return result_message
+
+
 @app.route("/calculate_salary", methods=["POST"])
 def calculate_salary():
+    # capture the API request!!!
     if request.method == "POST":
+        f = open("my_db.txt", "a")
         profession = request.form['profession']
+        f.write("profession:" + profession)
+        f.write("\n")
+
         number_of_experience_years = int(request.form['experience'])
+        f.write("Year of Experience:" + str(number_of_experience_years))
+        f.write("\n")
 
         languages = request.form['languages']
         users_coding_languages = languages.split(",")
+        f.write("List of Coding Languages:" + str(users_coding_languages))
+        f.write("\n")
+
+        f.close()
 
         user_software_programs = request.form['designTools']
         user_software_programs = user_software_programs.split(",")
@@ -59,8 +90,15 @@ def calculate_salary():
                                                               is_developer, is_designer, users_coding_languages,
                                                               user_software_programs)
 
-        return render_template("result.html", message=result_message)
+        f = open("data.json", "r")
+        file_content = f.read()
+
+        final_message = result_message + "\n" + file_content + "\n"
+        # The API response
+        return render_template("result.html", message=final_message)
 
     else:
 
         return "Please submit a POST request."
+
+# "a" means to append at the end of the file
