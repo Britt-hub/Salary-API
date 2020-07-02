@@ -1,5 +1,5 @@
 
-
+# state
 valid_states = ("FL", "CA", "NY", "NC", "TX")
 expected_salaries = {"NY": 70000, "CA": 70000, "FL": 50000, "NC": 50000, "TX": 60000}
 
