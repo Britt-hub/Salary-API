@@ -15,5 +15,5 @@ This page gives a good introduction to Flask. It assumes you already have Flask 
 
 # Installation
 
-* Create app or [click me](https://cdn.glitch.com/cb8748a0-bbc0-4fbb-b12c-e9b8e5b9fb96%2FScreen%20Shot%202020-07-01%20at%208.33.34%20PM.png?v=1593650027933) 
+*  [click me](https://drive.google.com/file/d/1wk6a1DZcZALiH6H-CsKkucIRZo2CXzDc/view) 
 

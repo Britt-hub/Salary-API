@@ -11,3 +11,6 @@ List of Coding Languages:['java', ' js', ' react', ' python']
 profession:1
 Year of Experience:1
 List of Coding Languages:['Python', ' react']
+profession:1
+Year of Experience:1
+List of Coding Languages:['Java', ' JS', ' React', ' Python']
