@@ -1,6 +1,6 @@
 # Salary-API
 
-[![Alt text](https://drive.google.com/file/d/1wk6a1DZcZALiH6H-CsKkucIRZo2CXzDc/view)](https://drive.google.com/file/d/1wk6a1DZcZALiH6H-CsKkucIRZo2CXzDc/view)
+[![Alt text](hhttps://cdn.glitch.com/cb8748a0-bbc0-4fbb-b12c-e9b8e5b9fb96%2FScreen%20Shot%202020-07-01%20at%208.33.34%20PM.png?v=1593650027933)](https://drive.google.com/file/d/1wk6a1DZcZALiH6H-CsKkucIRZo2CXzDc/view)
 
 
 # Description
